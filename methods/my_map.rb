@@ -4,6 +4,8 @@ require_relative 'my_each'
 
 module Enumerable
   def my_map
+    raise 'Error: No block was given' unless block_given?
+
     final_arr = []
 
     my_each do |i|
