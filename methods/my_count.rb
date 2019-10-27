@@ -15,5 +15,3 @@ module Enumerable
     count
   end
 end
-
-print "hello".my_count
