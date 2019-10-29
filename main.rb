@@ -26,15 +26,11 @@ module Enumerable
   end
 
   def my_map
-    raise 'Error: No block was given' unless block_given?
+    return to_enum unless block_given?
 
-    final_arr = []
-
-    my_each do |i|
-      final_arr.push(yield(i))
-    end
-
-    final_arr
+    array = []
+    my_each { |i| array << yield(i) }
+    array
   end
 
   def my_all?(arg = nil)
@@ -83,14 +79,11 @@ module Enumerable
   end
 
   def my_select
-    raise 'Error: No block was given' unless block_given?
+    return to_enum unless block_given?
 
-    final_arr = []
-    my_each do |i|
-      final_arr.push(i) if yield(i)
-    end
-
-    final_arr
+    array = []
+    my_each { |i| array << i if yield(i) }
+    array
   end
 
   def my_inject(arg_1 = nil, arg_2 = nil)
