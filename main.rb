@@ -55,15 +55,15 @@ module Enumerable
     false
   end
 
-  def my_count
-    raise 'Error: The input for my_count must be an array' unless is_a?(Array)
-
+  def my_count(num = nil)
     count = 0
-
-    my_each do
-      count += 1
+    if num
+      my_each { |elem| count += 1 if elem == num }
+    elsif block_given?
+      my_each { |elem| count += 1 if yield(elem) }
+    else
+      count = length
     end
-
     count
   end
 
