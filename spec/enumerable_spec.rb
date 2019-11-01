@@ -8,6 +8,12 @@ test_arr3 = [12.2, 13.4, 15.5, 16.9, 10.2]
 
 RSpec.describe Enumerable do
   describe '#my_each' do
+    context 'runs No block the same as #each' do
+      it do
+        expect(test_arr.my_each).to be_an(Enumerator)
+      end
+    end
+
     context 'runs a block the same as #each' do
       it do
         test = test_arr.each { |num| p num * 2 }
@@ -26,6 +32,11 @@ RSpec.describe Enumerable do
   end
 
   describe '#my_each_with_index' do
+    context 'runs No block the same as #each_with_index' do
+      it do
+        expect(test_arr.my_each_with_index).to be_an(Enumerator)
+      end
+    end
     context 'is identical to #each_with_index' do
       it do
         test = test_arr.each_with_index { |num, i| p num + i }
@@ -35,6 +46,11 @@ RSpec.describe Enumerable do
   end
 
   describe '#my_all' do
+    context 'runs No block the same as #all' do
+      it do
+        expect(test_arr.my_all?).to eq(true)
+      end
+    end
     context 'is identical to #all with Integers' do
       it do
         test = test_arr.all? { |num| num.is_a? Integer }
@@ -56,6 +72,11 @@ RSpec.describe Enumerable do
   end
 
   describe '#my_any' do
+    context 'runs No block the same as #any' do
+      it do
+        expect(test_arr.my_any?).to eq(true)
+      end
+    end
     context 'is identical to #any with Integers' do
       it do
         test = test_arr.any? { |num| num.is_a? Integer }
@@ -79,6 +100,11 @@ RSpec.describe Enumerable do
   end
 
   describe '#my_count' do
+    context 'runs No block the same as #count' do
+      it do
+        expect(test_arr.my_count).to eq(6)
+      end
+    end
     context 'is identical to #count using parameter' do
       it do
         expect(test_arr.my_count(1)).to eq(1)
@@ -97,6 +123,11 @@ RSpec.describe Enumerable do
   end
 
   describe '#none' do
+    context 'runs No block the same as #none' do
+      it do
+        expect(test_arr.my_none?).to eq(false)
+      end
+    end
     context 'is identical to #none with Integers' do
       it do
         test = test_arr.none? { |num| num.is_a? Integer }
@@ -120,6 +151,11 @@ RSpec.describe Enumerable do
   end
 
   describe '#select' do
+    context 'runs No block the same as #select' do
+      it do
+        expect(test_arr.my_select).to be_an(Enumerator)
+      end
+    end
     context 'is identical to #select' do
       it do
         test = test_arr.select(&:even?)
@@ -138,6 +174,11 @@ RSpec.describe Enumerable do
   end
 
   describe '#map' do
+    context 'runs No block the same as #map' do
+      it do
+        expect(test_arr.my_map).to be_an(Enumerator)
+      end
+    end
     context 'is identical to #map' do
       it do
         test = test_arr.map { |num| num * 10 }

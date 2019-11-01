@@ -7,6 +7,10 @@ Rubocop:
 
 ![rubocop validation](screenshot.jpg)
 
+RSpec:
+
+![rspec tests](rspec.png)
+
 # Features
 
 * Enumerable methods rebuilt
@@ -54,5 +58,5 @@ Call our code with a `require \"main.rb\"` and start using it like:
 
 # Authors
 
-🇧🇷 [Izaias Neto](https://www.github.com/izaiasneto4)
-🇨🇴🇸🇻 [Israel Laguan](https://www.github.com/Israel-Laguan)
+* 🇧🇷 [Izaias Neto](https://www.github.com/izaiasneto4)
+* 🇨🇴🇸🇻 [Israel Laguan](https://www.github.com/Israel-Laguan)
