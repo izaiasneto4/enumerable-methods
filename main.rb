@@ -39,7 +39,7 @@ module Enumerable
     elsif arg.nil?
       my_each { |i| return false unless i }
     else
-      my_each { |i| return false unless i.is_a?(arg) }
+      my_each { |i| return false unless arg == i }
     end
     true
   end
@@ -50,19 +50,19 @@ module Enumerable
     elsif arg.nil?
       my_each { |i| return true if i }
     else
-      my_each { |i| return true if i.is_a?(arg) }
+      my_each { |i| return true if arg == i }
     end
     false
   end
 
-  def my_count(num = nil)
+  def my_count(arg = nil)
     count = 0
-    if num
-      my_each { |elem| count += 1 if elem == num }
-    elsif block_given?
-      my_each { |elem| count += 1 if yield(elem) }
+    if block_given?
+      my_each { |i| count += 1 if yield(i) == true }
+    elsif arg.nil?
+      my_each { count += 1 }
     else
-      count = length
+      my_each { |i| count += 1 if i == arg }
     end
     count
   end

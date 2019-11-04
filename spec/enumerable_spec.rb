@@ -97,6 +97,12 @@ RSpec.describe Enumerable do
         expect(test_arr2.my_any? { |name| name.match(/Bi/) }).to eq(test)
       end
     end
+
+    context 'is identical to #any using String parameter' do
+      it do
+        expect(test_arr2.my_any?('Billy')).to eq(true)
+      end
+    end
   end
 
   describe '#my_count' do
@@ -149,10 +155,15 @@ RSpec.describe Enumerable do
       end
     end
 
-    context 'is identical to #none with Strings 2' do
+    context 'is identical to #none using Integer parameter' do
       it do
-        test = test_arr2.none?(/z/) #{ |name| name.match(/zzz/) }
-        expect(test_arr2.my_none?(/z/)).to eq(test) # { |name| name.match(/zzz/) }).to eq(test)
+        expect(test_arr.my_none?(3)).to eq(false)
+      end
+    end
+
+    context 'is identical to #count using String parameter' do
+      it do
+        expect(test_arr2.my_none?('Billy')).to eq(false)
       end
     end
   end
