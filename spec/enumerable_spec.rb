@@ -3,9 +3,9 @@
 require_relative '../main.rb'
 
 RSpec.describe Enumerable do
-  let (:test_arr) { [100, 54, 1, 2, 3, 4] }
-  let (:test_arr2) { ['Billy', 'Wild Bill', 'Big Bill', 'Coffdrop'] }
-  let (:test_arr3) { [12.2, 13.4, 15.5, 16.9, 10.2] }
+  let(:test_arr) { [100, 54, 1, 2, 3, 4] }
+  let(:test_arr2) { ['Billy', 'Wild Bill', 'Big Bill', 'Coffdrop'] }
+  let(:test_arr3) { [12.2, 13.4, 15.5, 16.9, 10.2] }
 
   describe '#my_each' do
     context 'runs No block the same as #each' do
