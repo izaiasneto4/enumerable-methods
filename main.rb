@@ -73,7 +73,7 @@ module Enumerable
     elsif arg.nil?
       my_each { |i| return false if i }
     else
-      my_each { |i| return false if i.is_a?(arg) }
+      my_each { |i| return false if arg == i }
     end
     true
   end

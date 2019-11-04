@@ -2,11 +2,11 @@
 
 require_relative '../main.rb'
 
-test_arr = [100, 54, 1, 2, 3, 4]
-test_arr2 = ['Billy', 'Wild Bill', 'Big Bill', 'Coffdrop']
-test_arr3 = [12.2, 13.4, 15.5, 16.9, 10.2]
-
 RSpec.describe Enumerable do
+  let (:test_arr) { [100, 54, 1, 2, 3, 4] }
+  let (:test_arr2) { ['Billy', 'Wild Bill', 'Big Bill', 'Coffdrop'] }
+  let (:test_arr3) { [12.2, 13.4, 15.5, 16.9, 10.2] }
+
   describe '#my_each' do
     context 'runs No block the same as #each' do
       it do
@@ -146,6 +146,13 @@ RSpec.describe Enumerable do
       it do
         test = test_arr2.none? { |name| name.match(/zzz/) }
         expect(test_arr2.my_none? { |name| name.match(/zzz/) }).to eq(test)
+      end
+    end
+
+    context 'is identical to #none with Strings 2' do
+      it do
+        test = test_arr2.none?(/z/) #{ |name| name.match(/zzz/) }
+        expect(test_arr2.my_none?(/z/)).to eq(test) # { |name| name.match(/zzz/) }).to eq(test)
       end
     end
   end
